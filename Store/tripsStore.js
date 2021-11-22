@@ -3,9 +3,11 @@ import { makeAutoObservable } from "mobx";
 import { instance } from "./instance";
 
 class TripsStore {
+
   trips = [];
 
   isLoading = true;
+main
   constructor() {
     makeAutoObservable(this);
   }
@@ -35,4 +37,5 @@ class TripsStore {
 }
 
 const tripsStore = new TripsStore();
-/* tripsStore.fetchTrip() */ export default tripsStore;
+ tripsStore.fetchTrip() 
+export default tripsStore;
