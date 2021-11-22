@@ -1,7 +1,7 @@
 import { Button } from "native-base";
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import tripsStore from "../Store/tripsStore";
+import userAuthStore from "../Store/userAuthStore";
 import { observer } from "mobx-react";
 
 const Home = () => {
@@ -9,9 +9,9 @@ const Home = () => {
     <View>
       <Text>Testing Component</Text>
 
-      {/* {tripsStore.user ? ( */}
-      <Button onPress={() => tripsStore.logout()}>Logout</Button>
-      {/* ) : null */}
+      {userAuthStore.user ? (
+        <Button onPress={() => userAuthStore.logout()}>Logout</Button>
+      ) : null}
     </View>
   );
 };
