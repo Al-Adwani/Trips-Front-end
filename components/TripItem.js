@@ -1,10 +1,16 @@
-import { Box, HStack, Image, Pressable, VStack } from "native-base";
+import { Box, Image, Pressable, VStack } from "native-base";
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
+import { observer } from "mobx-react";
+import { baseURL } from "../Store/instance";
 
 const TripItem = ({ trip, navigation }) => {
   return (
-    <Pressable>
+    <Pressable
+      onPress={() => {
+        navigation.navigate("TripDetail", { trip: trip });
+      }}
+    >
       <VStack mt="4">
         <Box
           rounded="lg"
@@ -29,13 +35,10 @@ const TripItem = ({ trip, navigation }) => {
           }}
         >
           <View>
-            <Text>{trip.title}</Text>
+            <Text>The title:{trip.title}</Text>
             <Image
-              source={{
-                uri: trip.image,
-              }}
-              alt="Alternate Text"
-              style={{ width: 1500, height: 100 }}
+              source={{ uri: baseURL + trip.image }}
+              style={{ width: 50, height: 50 }}
             />
           </View>
         </Box>
@@ -44,6 +47,6 @@ const TripItem = ({ trip, navigation }) => {
   );
 };
 
-export default TripItem;
+export default observer(TripItem);
 
 const styles = StyleSheet.create({});
