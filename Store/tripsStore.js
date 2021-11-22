@@ -3,24 +3,7 @@ import { makeAutoObservable } from "mobx";
 import { instance } from "./instance";
 
 class TripsStore {
-  // trips = [];
-
-  trips = [
-    {
-      _id: "1",
-      title: "Trip to Greece",
-      image:
-        "https://cdn.cnn.com/cnnnext/dam/assets/170606121035-greece---travel-destination---shutterstock-560829934.jpg",
-      description: "Tag along to a wonedrful tour of Greece",
-    },
-    {
-      _id: "2",
-      title: "Trip to Portland Oregan",
-      image:
-        "https://viewfinder.expedia.com/wp-content/uploads/2018/12/best-hiking-near-portland.jpg",
-      description: "Hike the smoky mountains of Oregan National Park",
-    },
-  ];
+  trips = [];
 
   isLoading = true;
   constructor() {
