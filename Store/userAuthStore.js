@@ -12,7 +12,7 @@ class UserAuthStore {
     try {
       const res = await instance.post("/signup", userData);
       this.setUser(res.data.token);
-      navigation.navigate("CartList");
+      // navigation.navigate("");
     } catch (error) {
       //   toast.show({
       //     title: "Check your user name/password",
@@ -27,7 +27,7 @@ class UserAuthStore {
     try {
       const res = await instance.post("/signin", user);
       this.setUser(res.data.token);
-      navigation.goBack();
+      // navigation.goBack();
     } catch (error) {
       // toast.show({
       //   title: "Check your user name/password",
@@ -40,20 +40,19 @@ class UserAuthStore {
   setUser = async (token) => {
     try {
       await AsyncStorage.setItem("myToken", token);
-      //   localStorage.setItem("myToken", token);
-      // any req. from backend it will stay in header
       this.user = decode(token);
       instance.defaults.headers.common.Authorization = `bearer ${token}`;
     } catch (error) {}
   };
-  //   logout = async () => {
-  //     try {
-  //       delete instance.defaults.headers.common.Authorization;
-  //       await AsyncStorage.removeItem("myToken");
-  //       // localStorage.removeItem("myToken");
-  //       this.user = null;
-  //     } catch (error) {}
-  //   };
+  logout = async () => {
+    try {
+      delete instance.defaults.headers.common.Authorization;
+      await AsyncStorage.removeItem("myToken");
+      this.user = null;
+    } catch (error) {
+      console.log(error);
+    }
+  };
   checkForToken = async () => {
     try {
       const token = await AsyncStorage.getItem("myToken");

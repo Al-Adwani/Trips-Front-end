@@ -1,7 +1,31 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet } from "react-native";
+import {
+  Box,
+  Text,
+  Heading,
+  VStack,
+  FormControl,
+  Input,
+  Link,
+  Button,
+  HStack,
+  Center,
+  useToast,
+} from "native-base";
+import { useState } from "react";
+import userAuthStore from "../Store/userAuthStore";
 
-const Signin = () => {
+const Signin = ({ navigation }) => {
+  const toast = useToast();
+  const [user, setUser] = useState({
+    username: "",
+    password: "",
+  });
+  const handleSubmit = async () => {
+    await userAuthStore.signin(user, navigation, toast);
+  };
+
   return (
     <Center flex={1} px="3">
       <Box safeArea p="2" py="8" w="90%" maxW="290">
@@ -24,7 +48,7 @@ const Signin = () => {
           fontWeight="medium"
           size="xs"
         >
-          Talk to a travel expert to find your perfect tour{" "}
+          Talk to a travel expert to find your perfect tour
         </Heading>
 
         <VStack space={3} mt="5">
@@ -54,7 +78,7 @@ const Signin = () => {
             </Link>
           </FormControl>
           <Button mt="2" colorScheme="indigo" onPress={handleSubmit}>
-            Sign up
+            Sign in
           </Button>
           <HStack mt="6" justifyContent="center">
             <Text
@@ -64,7 +88,7 @@ const Signin = () => {
                 color: "warmGray.200",
               }}
             >
-              Sign in Please{" "}
+              Sign in Please
             </Text>
             <Link
               _text={{
