@@ -5,16 +5,25 @@ import Signup from "./Signup";
 import Signin from "./Signin";
 import Home from "./Home";
 import TripsList from "./TripsList";
+
+import CreateTrip from "./CreateTrip";
+
 import TripDetail from "./TripDetail";
 // import Test from "./Test";
 // import Title from "./Icons/Title";
+
 
 const Navigation = () => {
   const { Navigator, Screen } = createStackNavigator();
 
   return (
     <Navigator
+
+ 
+
       initialRouteName="TripsList"
+
+
       screenOptions={{
         headerStyle: { backgroundColor: "#96dce0" },
         headerTintColor: "white",
@@ -51,8 +60,13 @@ const Navigation = () => {
         }}
       />
       <Screen
+
+        name="CreateTrip"
+        component={CreateTrip}
+
         name="TripDetail"
         component={TripDetail}
+
         // options={{
         //   headerTitle: () => (
 
@@ -65,6 +79,7 @@ const Navigation = () => {
       {/* <Screen
         name="Test"
         component={Test}
+
         options={{
           headerStyle: { backgroundColor: "#39b4bc" },
         }}
