@@ -3,12 +3,18 @@ import { StyleSheet, Text, View } from "react-native";
 import { observer } from "mobx-react";
 import tripsStore from "../Store/tripsStore";
 import TripItem from "./TripItem";
+import { AddButton } from "./AddButton";
 
 const TripsList = ({ navigation }) => {
   const tripList = tripsStore.trips.map((trip) => (
     <TripItem navigation={navigation} trip={trip} key={trip._id} />
   ));
-  return <View style={styles.container}>{tripList}</View>;
+  return (
+    <View style={styles.container}>
+      {tripList}
+      <AddButton />
+    </View>
+  );
 };
 
 const styles = StyleSheet.create({
