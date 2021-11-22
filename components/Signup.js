@@ -25,6 +25,7 @@ const Signup = ({ navigation }) => {
   });
   const handleSubmit = async () => {
     await userAuthStore.signup(user, navigation, toast);
+    console.log(user);
   };
   return (
     <Center flex={1} px="3">
@@ -70,18 +71,6 @@ const Signup = ({ navigation }) => {
               onChangeText={(email) => setUser({ ...user, email })}
               placeholder={"Email"}
             />
-
-            <Link
-              _text={{
-                fontSize: "xs",
-                fontWeight: "500",
-                color: "indigo.500",
-              }}
-              alignSelf="flex-end"
-              mt="1"
-            >
-              Forget Password?
-            </Link>
           </FormControl>
           <Button mt="2" colorScheme="indigo" onPress={handleSubmit}>
             Sign up

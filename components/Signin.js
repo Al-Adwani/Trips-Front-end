@@ -24,6 +24,7 @@ const Signin = ({ navigation }) => {
   });
   const handleSubmit = async () => {
     await userAuthStore.signin(user, navigation, toast);
+    
   };
 
   return (
@@ -64,18 +65,6 @@ const Signin = ({ navigation }) => {
               type="password"
               onChangeText={(password) => setUser({ ...user, password })}
             />
-
-            <Link
-              _text={{
-                fontSize: "xs",
-                fontWeight: "500",
-                color: "indigo.500",
-              }}
-              alignSelf="flex-end"
-              mt="1"
-            >
-              Forget Password?
-            </Link>
           </FormControl>
           <Button mt="2" colorScheme="indigo" onPress={handleSubmit}>
             Sign in
