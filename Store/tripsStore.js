@@ -4,7 +4,10 @@ import { instance } from "./instance";
 
 class TripsStore {
   // trips = [];
+  trip-detail
   // isLoading = true;
+
+main
 
   trips = [
     {
@@ -22,6 +25,11 @@ class TripsStore {
       description: "Hike the smoky mountains of Oregan National Park",
     },
   ];
+trip-detail
+
+
+  isLoading = true;
+main
   constructor() {
     makeAutoObservable(this);
   }
