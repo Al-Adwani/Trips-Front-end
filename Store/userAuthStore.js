@@ -13,32 +13,30 @@ class UserAuthStore {
       const res = await instance.post("/signup", userData);
       this.setUser(res.data.token);
       navigation.navigate("CartList");
-
-      //   history.push("/");
     } catch (error) {
-      toast.show({
-        title: "Check your user name/password",
-        // status:"info" يطلع شكل ثاني
-        status: "error",
-        description: "Wrong Password",
-      });
+      //   toast.show({
+      //     title: "Check your user name/password",
+      //     // status:"info" يطلع شكل ثاني
+      //     status: "error",
+      //     description: "Wrong Password",
+      //   });
     }
   };
 
-  //   signin = async (user, navigation, toast) => {
-  //     try {
-  //       const res = await instance.post("/signin", user);
-  //       this.setUser(res.data.token);
-  //       navigation.goBack();
-  //     } catch (error) {
-  //       toast.show({
-  //         title: "Check your user name/password",
-  //         // status:"info" يطلع شكل ثاني
-  //         status: "error",
-  //         description: "Wrong Password",
-  //       });
-  //     }
-  //   };
+  signin = async (user, navigation, toast) => {
+    try {
+      const res = await instance.post("/signin", user);
+      this.setUser(res.data.token);
+      navigation.goBack();
+    } catch (error) {
+      // toast.show({
+      //   title: "Check your user name/password",
+      //   // status:"info" يطلع شكل ثاني
+      //   status: "error",
+      //   description: "Wrong Password",
+      // });
+    }
+  };
   setUser = async (token) => {
     try {
       await AsyncStorage.setItem("myToken", token);
