@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet } from "react-native";
-// import userAuth
+import userAuthStore from "../Store/userAuthStore";
 import {
   Box,
   Text,

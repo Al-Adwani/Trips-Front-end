@@ -1,16 +1,15 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { observer } from "mobx-react";
+import tripsStore from "../Store/tripsStore";
+import TripItem from "./TripItem";
 
-const TripsList = () => {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Hello Team</Text>
-    </View>
-  );
+const TripsList = ({ navigation }) => {
+  const tripList = tripsStore.trips.map((trip) => (
+    <TripItem navigation={navigation} trip={trip} key={trip._id} />
+  ));
+  return <View style={styles.container}>{tripList}</View>;
 };
-
-export default observer(TripsList);
 
 const styles = StyleSheet.create({
   container: {
@@ -30,3 +29,5 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
 });
+
+export default observer(TripsList);
