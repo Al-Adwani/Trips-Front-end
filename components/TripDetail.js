@@ -1,5 +1,5 @@
 import React from "react";
-import { observer } from "mobx-react-lite";
+import { observer } from "mobx-react";
 import {
   Pressable,
   Animated,
@@ -9,8 +9,11 @@ import {
   StyleSheet,
   Text,
   View,
+  Button,
 } from "react-native";
-import { Box, AspectRatio, Center } from "native-base";
+import { Box, AspectRatio, Center, Badge } from "native-base";
+import Icon from "react-native-vector-icons/Feather";
+
 // import { TabView, SceneMap } from "react-native-tab-view";
 // import Constants from "expo-constants";
 
@@ -27,10 +30,14 @@ import tripsStore from "../Store/tripsStore";
 export const TripDetail = ({ navigation, route }) => {
   if (tripsStore.isLoading) return <Spinner />;
   const { trip } = route.params;
+
+  const handleDelete = () => {
+    tripsStore.deleteTrip(trip._id, navigation);
+  };
   // const handleDelete = () => {
   //   tripsStore.deleteTrip(trip._id, navigation);
   // };
-
+  console.log(baseURL + trip.image);
   return (
     <View style={styles.container}>
       {/* <ImageBackground
@@ -42,21 +49,20 @@ export const TripDetail = ({ navigation, route }) => {
       <Center flex={1} px="7">
         <Text style={styles.baseText}> {trip.title}</Text>
         <Text style={styles.text}>{trip.description}</Text>
-
         <Box borderWidth="1" borderColor="#39b4bc">
           <AspectRatio w="100%" ratio={16 / 9}>
-            {/* <Image
+            <Image
               source={{ uri: baseURL + trip.image }}
               style={{ width: 50, height: 50 }}
-            /> */}
-            <Image
-              source={{
-                uri: "https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg",
-              }}
-              alt="image"
             />
           </AspectRatio>
         </Box>
+        <Icon
+          style={{ alignSelf: "flex-end" }}
+          size={20}
+          name="delete"
+          onPress={handleDelete}
+        />
       </Center>
     </View>
   );

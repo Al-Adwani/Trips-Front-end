@@ -14,7 +14,7 @@ class TripsStore {
     try {
       const res = await instance.get("/trips");
       this.trips = res.data;
-      console.log();
+      console.log(this.trips);
       this.isLoading = false;
     } catch (error) {
       console.log(error);
@@ -40,13 +40,13 @@ class TripsStore {
 
       // navigation.navigate("TripsList")
       this.trips = this.trips.filter((trip) => trip._id !== id);
-      // navigation.navigate("TripsList")
-    } catch (error) {}
+      navigation.navigate("TripsList");
+    } catch (error) {
+      console.log(error);
+    }
   };
 }
 
 const tripsStore = new TripsStore();
-
 tripsStore.fetchTrip();
-
 export default tripsStore;
