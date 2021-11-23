@@ -8,8 +8,8 @@ import TripsList from "./TripsList";
 import Profile from "./Icons/Profile";
 import CreateTrip from "./CreateTrip";
 import TripDetail from "./TripDetail";
-// import Test from "./Test";
-// import Title from "./Icons/Title";
+import ImagePick from "./ImagePick";
+
 
 const Navigation = () => {
   const { Navigator, Screen } = createStackNavigator();
@@ -55,6 +55,24 @@ const Navigation = () => {
       <Screen name="CreateTrip" component={CreateTrip} />
 
       <Screen
+
+        name="CreateTrip"
+        component={CreateTrip}
+        options={{
+          headerStyle: { backgroundColor: "pink" },
+        }}
+      />
+      <Screen
+        name="TripDetail"
+        component={TripDetail}
+        options={{
+          headerStyle: { backgroundColor: "pink" },
+        }}
+      />
+      <Screen
+        name="ImagePick"
+        component={ImagePick}
+
         name="Profile"
         component={Profile}
         options={{

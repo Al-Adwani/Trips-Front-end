@@ -12,7 +12,7 @@ const TripsList = ({ navigation }) => {
   return (
     <View style={styles.container}>
       {tripList}
-      <AddButton />
+      <AddButton onPress={() => navigation.navigate("CreateTrip")} />
     </View>
   );
 };
