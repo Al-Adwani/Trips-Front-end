@@ -1,6 +1,6 @@
-import { Box, Image, Pressable, VStack } from "native-base";
+import { Box, Pressable, VStack } from "native-base";
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, Image } from "react-native";
 import { observer } from "mobx-react";
 import { baseURL } from "../Store/instance";
 
