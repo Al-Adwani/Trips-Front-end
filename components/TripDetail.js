@@ -20,6 +20,7 @@ import { Box, AspectRatio, Center } from "native-base";
 
 import { TextInput, Dimensions, Image } from "react-native";
 import { Spinner } from "native-base";
+import { baseURL } from "../Store/instance";
 
 import tripsStore from "../Store/tripsStore";
 
@@ -44,6 +45,10 @@ export const TripDetail = ({ navigation, route }) => {
 
         <Box borderWidth="1" borderColor="#39b4bc">
           <AspectRatio w="100%" ratio={16 / 9}>
+            {/* <Image
+              source={{ uri: baseURL + trip.image }}
+              style={{ width: 50, height: 50 }}
+            /> */}
             <Image
               source={{
                 uri: "https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg",

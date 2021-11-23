@@ -3,7 +3,6 @@ import { makeAutoObservable } from "mobx";
 import { instance } from "./instance";
 
 class TripsStore {
-
   trips = [];
   isLoading = true;
 
@@ -23,10 +22,6 @@ class TripsStore {
   //     description: "Hike the smoky mountains of Oregan National Park",
   //   },
   // ];
-
-
-  trips = [];
-
 
   constructor() {
     makeAutoObservable(this);
@@ -70,7 +65,5 @@ class TripsStore {
 const tripsStore = new TripsStore();
 
 tripsStore.fetchTrip();
-
- tripsStore.fetchTrip() 
 
 export default tripsStore;
