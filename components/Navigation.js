@@ -66,8 +66,6 @@ const Navigation = () => {
         }}
       />
       <Screen
-        name="ImagePick"
-        component={ImagePick}
         name="Profile"
         component={Profile}
         options={{
