@@ -35,7 +35,7 @@ const TripItem = ({ trip, navigation }) => {
           }}
         >
           <View>
-            <Text>The title:{trip.title}</Text>
+            <Text>{trip.title}</Text>
             <Image
               source={{ uri: baseURL + trip.image }}
               style={{ width: 50, height: 50 }}

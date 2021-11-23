@@ -15,7 +15,7 @@ const Navigation = () => {
 
   return (
     <Navigator
-      initialRouteName="TripsList"
+      initialRouteName="Signin"
       screenOptions={{
         headerStyle: { backgroundColor: "#96dce0" },
         headerTintColor: "white",

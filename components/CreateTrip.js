@@ -11,11 +11,7 @@ const CreateTrip = () => {
   });
 
   const onSubmit = () => {
-
-    console.log(trip);
-
     tripsStore.createTrip(trip);
-    console.log(trip);
   };
 
   return (
@@ -27,7 +23,7 @@ const CreateTrip = () => {
           onChangeText={(value) => setTrip({ ...trip, title: value })}
         />
         <FormControl.Label _text={{ bold: true }}>
-          <ImagePick />
+          <ImagePick setTrip={setTrip} trip={trip} />
         </FormControl.Label>
         {/* <Input
         // placeholder="Import your image"
@@ -41,7 +37,6 @@ const CreateTrip = () => {
           onChangeText={(value) => setTrip({ ...trip, description: value })}
         />
       </FormControl>
-      {/* <ImagePick /> */}
       <Button onPress={onSubmit} mt="5" colorScheme="cyan">
         Submit
       </Button>
