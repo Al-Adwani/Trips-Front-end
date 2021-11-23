@@ -1,15 +1,15 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
 import Signup from "./Signup";
 import Signin from "./Signin";
 import Home from "./Home";
 import TripsList from "./TripsList";
-
+import Profile from "./Icons/Profile";
 import CreateTrip from "./CreateTrip";
-
 import TripDetail from "./TripDetail";
 import ImagePick from "./ImagePick";
+
 
 const Navigation = () => {
   const { Navigator, Screen } = createStackNavigator();
@@ -18,7 +18,7 @@ const Navigation = () => {
     <Navigator
       initialRouteName="TripsList"
       screenOptions={{
-        headerStyle: { backgroundColor: "pink" },
+        headerStyle: { backgroundColor: "#96dce0" },
         headerTintColor: "white",
         headerTitleStyle: { fontStyle: "italic", fontWeight: "bold" },
         // backgroundColor: "transparent",
@@ -28,32 +28,34 @@ const Navigation = () => {
         name="Signup"
         component={Signup}
         options={{
-          headerStyle: { backgroundColor: "pink" },
-          //   headerTitle: () => <Title />,
+          headerStyle: { backgroundColor: "#39b4bc" },
         }}
       />
       <Screen
         name="Signin"
         component={Signin}
         options={{
-          headerStyle: { backgroundColor: "pink" },
+          headerStyle: { backgroundColor: "#39b4bc" },
         }}
       />
       <Screen
         name="Home"
         component={Home}
         options={{
-          headerStyle: { backgroundColor: "pink" },
+          headerStyle: { backgroundColor: "#39b4bc" },
         }}
       />
       <Screen
         name="TripsList"
         component={TripsList}
         options={{
-          headerStyle: { backgroundColor: "pink" },
+          headerStyle: { backgroundColor: "#39b4bc" },
         }}
       />
+      <Screen name="CreateTrip" component={CreateTrip} />
+
       <Screen
+
         name="CreateTrip"
         component={CreateTrip}
         options={{
@@ -70,10 +72,24 @@ const Navigation = () => {
       <Screen
         name="ImagePick"
         component={ImagePick}
+
+        name="Profile"
+        component={Profile}
         options={{
-          headerStyle: { backgroundColor: "pink" },
+          headerStyle: { backgroundColor: "#39b4bc" },
         }}
       />
+
+      <Screen name="TripDetail" component={TripDetail} />
+
+      {/* <Screen
+        name="Test"
+        component={Test}
+
+        options={{
+          headerStyle: { backgroundColor: "#39b4bc" },
+        }}
+      /> */}
     </Navigator>
   );
 };
