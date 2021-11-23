@@ -10,8 +10,8 @@ const CreateTrip = () => {
   });
 
   const onSubmit = () => {
-    // console.log(trip);
     tripsStore.createTrip(trip);
+    console.log(trip);
   };
 
   return (

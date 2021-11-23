@@ -8,7 +8,9 @@ export const AddButton = () => {
   const navigation = useNavigation();
 
   const handlePress = () => {
-    if (userAuthStore.user) navigation.navigate("CreateTrip");
+    // if (userAuthStore.user)
+    alert("hi");
+    navigation.navigate("CreateTrip");
   };
   // Else go to sign in/up
 
@@ -24,3 +26,4 @@ export const AddButton = () => {
     </Pressable>
   );
 };
+export default AddButton;
