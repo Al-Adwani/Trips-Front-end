@@ -10,7 +10,6 @@ import CreateTrip from "./CreateTrip";
 import TripDetail from "./TripDetail";
 import ImagePick from "./ImagePick";
 
-
 const Navigation = () => {
   const { Navigator, Screen } = createStackNavigator();
 
@@ -52,10 +51,7 @@ const Navigation = () => {
           headerStyle: { backgroundColor: "#39b4bc" },
         }}
       />
-      <Screen name="CreateTrip" component={CreateTrip} />
-
       <Screen
-
         name="CreateTrip"
         component={CreateTrip}
         options={{
@@ -72,24 +68,12 @@ const Navigation = () => {
       <Screen
         name="ImagePick"
         component={ImagePick}
-
         name="Profile"
         component={Profile}
         options={{
           headerStyle: { backgroundColor: "#39b4bc" },
         }}
       />
-
-      <Screen name="TripDetail" component={TripDetail} />
-
-      {/* <Screen
-        name="Test"
-        component={Test}
-
-        options={{
-          headerStyle: { backgroundColor: "#39b4bc" },
-        }}
-      /> */}
     </Navigator>
   );
 };
