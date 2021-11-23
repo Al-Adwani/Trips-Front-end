@@ -8,7 +8,8 @@ export const AddButton = () => {
   const navigation = useNavigation();
 
   const handlePress = () => {
-    if (userAuthStore.user) navigation.navigate("CreateTrip");
+    // if (userAuthStore.user)
+    navigation.navigate("CreateTrip");
   };
   // Else go to sign in/up
 

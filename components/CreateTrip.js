@@ -1,6 +1,7 @@
 import React from "react";
 import { VStack, Button, FormControl, Input } from "native-base";
 import tripsStore from "../Store/tripsStore";
+import ImagePick from "./ImagePick";
 
 const CreateTrip = () => {
   const [trip, setTrip] = React.useState({
@@ -10,7 +11,7 @@ const CreateTrip = () => {
   });
 
   const onSubmit = () => {
-    // console.log(trip);
+    console.log(trip);
     tripsStore.createTrip(trip);
   };
 
@@ -22,11 +23,13 @@ const CreateTrip = () => {
           placeholder="Magical trip to Greece"
           onChangeText={(value) => setTrip({ ...trip, title: value })}
         />
-        <FormControl.Label _text={{ bold: true }}>Image</FormControl.Label>
-        <Input
-          placeholder="Import your image"
-          onChangeText={(value) => setTrip({ ...trip, image: value })}
-        />
+        <FormControl.Label _text={{ bold: true }}>
+          <ImagePick />
+        </FormControl.Label>
+        {/* <Input
+        // placeholder="Import your image"
+        // onChangeText={(value) => setTrip({ ...trip, image: value })}
+        /> */}
         <FormControl.Label _text={{ bold: true }}>
           Description
         </FormControl.Label>
@@ -35,6 +38,7 @@ const CreateTrip = () => {
           onChangeText={(value) => setTrip({ ...trip, description: value })}
         />
       </FormControl>
+      {/* <ImagePick /> */}
       <Button onPress={onSubmit} mt="5" colorScheme="cyan">
         Submit
       </Button>

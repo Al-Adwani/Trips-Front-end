@@ -3,15 +3,15 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import userAuthStore from "../Store/userAuthStore";
 import { observer } from "mobx-react";
+import ImagePick from "./ImagePick";
 
 const Home = () => {
   return (
     <View>
-      <Text>Testing Component</Text>
-
-      {userAuthStore.user ? (
+      {/* <Text>Testing Component</Text> */}
+      {/* {userAuthStore.user ? (
         <Button onPress={() => userAuthStore.logout()}>Logout</Button>
-      ) : null}
+      ) : null} */}
     </View>
   );
 };
