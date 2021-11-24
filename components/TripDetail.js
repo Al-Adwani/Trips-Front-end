@@ -26,6 +26,7 @@ import { Spinner } from "native-base";
 import { baseURL } from "../Store/instance";
 
 import tripsStore from "../Store/tripsStore";
+import userAuthStore from "../Store/userAuthStore";
 
 export const TripDetail = ({ navigation, route }) => {
   if (tripsStore.isLoading) return <Spinner />;
@@ -34,10 +35,17 @@ export const TripDetail = ({ navigation, route }) => {
   const handleDelete = () => {
     tripsStore.deleteTrip(trip._id, navigation);
   };
-  // const handleDelete = () => {
-  //   tripsStore.deleteTrip(trip._id, navigation);
-  // };
+
+  const verifyUser = () => {
+    if (userAuthStore.user) {
+      return userAuthStore.user._id.toString();
+    } else {
+      return "Guest";
+    }
+  };
+  console.log(verifyUser());
   console.log(baseURL + trip.image);
+
   return (
     <View style={styles.container}>
       {/* <ImageBackground
@@ -57,10 +65,18 @@ export const TripDetail = ({ navigation, route }) => {
             />
           </AspectRatio>
         </Box>
-        <Button style={{ marginTop: 16 }} onPress={handleDelete}>
-          Delete Trip
-        </Button>
-        <Button style={{ marginTop: 16 }}>Update Trip</Button>
+        {verifyUser() === trip.owner.toString() ? (
+          <Button onPress={handleDelete}>Delete</Button>
+        ) : null}
+        {verifyUser() === trip.owner.toString() ? (
+          <Button
+            onPress={() => {
+              navigation.navigate("UpdateTheTrip", { trip: trip });
+            }}
+          >
+            Update Trip
+          </Button>
+        ) : null}
 
         {/* <Icon
           style={{ alignSelf: "flex-end" }}
@@ -91,14 +107,12 @@ const styles = StyleSheet.create({
   // },
 
   baseText: {
-    fontFamily: "Cochin",
-    fontWeight: "bold",
     fontSize: 30,
     color: "#39b4bc",
   },
   text: {
     color: "#39b4bc",
-    fontFamily: "Cochin",
+
     fontSize: 20,
   },
 });

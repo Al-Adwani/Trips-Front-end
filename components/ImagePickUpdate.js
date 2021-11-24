@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Button, Image, View, Platform } from "react-native";
 import * as ImagePicker from "expo-image-picker";
 
-export default function ImagePick({ setTrip, trip }) {
+export default function ImagePickUpdate({ setUpdateTrip, updateTrip }) {
   //   const [image, setImage] = useState(null);
 
   useEffect(() => {
@@ -31,14 +31,27 @@ export default function ImagePick({ setTrip, trip }) {
 
       let match = /\.(\w+)$/.exec(filename);
       let type = match ? `image/${match[1]}` : `image`;
+      //   setImage({ image: result.uri });
+      //   setImage({ ...image, localUri: result.uri });
+      //   setImage({ ...image, filename: filename });
+      //   setImage({ ...image, type: type });
 
-      setTrip({ ...trip, image: { uri: localUri, name: filename, type } });
+      setUpdateTrip({
+        ...updateTrip,
+        image: { uri: localUri, name: filename, type },
+      });
     }
   };
 
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
       <Button title="Pick an image from camera roll" onPress={pickImage} />
+      {/* {trip.image && (
+            <Image
+              source={{ uri: trip.image.uri }}
+              style={{ width: 200, height: 200 }}
+            />
+          )} */}
     </View>
   );
 }

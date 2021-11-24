@@ -41,7 +41,7 @@ class UserAuthStore {
     try {
       await AsyncStorage.setItem("myToken", token);
       this.user = decode(token);
-      instance.defaults.headers.common.Authorization = `bearer ${token}`;
+      instance.defaults.headers.common.Authorization = `Bearer ${token}`;
     } catch (error) {}
   };
   logout = async () => {
@@ -57,9 +57,9 @@ class UserAuthStore {
     try {
       const token = await AsyncStorage.getItem("myToken");
       if (token) {
-        const currenTime = Date.now();
+        const currentTime = Date.now();
         let tempUser = decode(token);
-        if (tempUser.exp >= currenTime) {
+        if (tempUser.exp >= currentTime) {
           this.setUser(token);
         } else {
           this.logout();

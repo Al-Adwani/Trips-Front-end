@@ -9,14 +9,18 @@ import Profile from "./Icons/Profile";
 import CreateTrip from "./CreateTrip";
 import TripDetail from "./TripDetail";
 import ImagePick from "./ImagePick";
+
+import UpdateTheTrip from "./UpdateTheTrip";
+
 import ProfileButton from "./Icons/ProfileButton";
+
 
 const Navigation = () => {
   const { Navigator, Screen } = createStackNavigator();
 
   return (
     <Navigator
-      initialRouteName="TripsList"
+      initialRouteName="Signin"
       screenOptions={{
         headerStyle: { backgroundColor: "#96dce0" },
         headerTintColor: "white",
@@ -82,6 +86,13 @@ const Navigation = () => {
           return {
             headerRight: () => <ProfileButton navigation={navigation} />,
           };
+        }}
+      />
+      <Screen
+        name="UpdateTheTrip"
+        component={UpdateTheTrip}
+        options={{
+          headerStyle: { backgroundColor: "#39b4bc" },
         }}
       />
     </Navigator>
