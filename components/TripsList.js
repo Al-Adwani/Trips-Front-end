@@ -17,6 +17,7 @@ const TripsList = ({ navigation }) => {
   );
 };
 
+// REVIEW: Move the styling into its own file
 const styles = StyleSheet.create({
   container: {
     flex: 1,

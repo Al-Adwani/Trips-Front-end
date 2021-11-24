@@ -13,6 +13,8 @@ import {
 } from "react-native";
 import { Box, AspectRatio, Center, Badge } from "native-base";
 import Icon from "react-native-vector-icons/Feather";
+// REVIEW: Remove commented out code
+// REVIEW: Remove unused imports
 
 // import { TabView, SceneMap } from "react-native-tab-view";
 // import Constants from "expo-constants";
@@ -34,6 +36,7 @@ export const TripDetail = ({ navigation, route }) => {
   const handleDelete = () => {
     tripsStore.deleteTrip(trip._id, navigation);
   };
+  // REVIEW: Remove commented out code and console logs
   // const handleDelete = () => {
   //   tripsStore.deleteTrip(trip._id, navigation);
   // };

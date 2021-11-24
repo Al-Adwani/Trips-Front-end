@@ -14,6 +14,7 @@ class TripsStore {
     try {
       const res = await instance.get("/trips");
       this.trips = res.data;
+      // REVIEW: Remove console log
       console.log(this.trips);
       this.isLoading = false;
     } catch (error) {
@@ -36,6 +37,7 @@ class TripsStore {
 
   deleteTrip = async (id, navigation) => {
     try {
+      // REVIEW: The delete does not have a response
       const res = await instance.delete(`/trips/${id}`);
 
       // navigation.navigate("TripsList")

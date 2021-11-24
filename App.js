@@ -13,12 +13,14 @@ export default function App() {
       </NativeBaseProvider>
     </NavigationContainer>
 
+    // REVIEW: Remove commented out code
     // <View style={styles.container}>
     //   <Text>Open up App.js to start working on your app!</Text>
     //   <StatusBar style="auto" />
     // </View>
   );
 }
+// REVIEW: Remove commented out code
 
 // const styles = StyleSheet.create({
 //   container: {

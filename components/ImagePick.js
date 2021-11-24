@@ -31,6 +31,7 @@ export default function ImagePick({ setTrip, trip }) {
 
       let match = /\.(\w+)$/.exec(filename);
       let type = match ? `image/${match[1]}` : `image`;
+      // REVIEW: Remove commented out code
       //   setImage({ image: result.uri });
       //   setImage({ ...image, localUri: result.uri });
       //   setImage({ ...image, filename: filename });

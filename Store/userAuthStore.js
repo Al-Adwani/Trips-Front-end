@@ -2,6 +2,7 @@ import { makeAutoObservable } from "mobx";
 import decode from "jwt-decode";
 import { instance } from "./instance";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+// REVIEW: It's AuthStore, not UserAuthStore
 class UserAuthStore {
   user = null;
 
@@ -41,6 +42,7 @@ class UserAuthStore {
     try {
       await AsyncStorage.setItem("myToken", token);
       this.user = decode(token);
+      // REVIEW: It's Bearer not bearer
       instance.defaults.headers.common.Authorization = `bearer ${token}`;
     } catch (error) {}
   };
@@ -57,6 +59,7 @@ class UserAuthStore {
     try {
       const token = await AsyncStorage.getItem("myToken");
       if (token) {
+        // REVIEW: currentTime not currenTime
         const currenTime = Date.now();
         let tempUser = decode(token);
         if (tempUser.exp >= currenTime) {
