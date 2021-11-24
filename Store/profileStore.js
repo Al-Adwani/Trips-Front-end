@@ -20,6 +20,15 @@ class ProfileStore {
       console.log(error);
     }
   };
+
+  createProfile = async () => {
+    try {
+      const response = await instance.post("/profiles", formData);
+      this.profiles.push(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 }
 
 const profileStore = new ProfileStore();
