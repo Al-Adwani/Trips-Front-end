@@ -9,6 +9,7 @@ import Profile from "./Icons/Profile";
 import CreateTrip from "./CreateTrip";
 import TripDetail from "./TripDetail";
 import ImagePick from "./ImagePick";
+import ProfileButton from "./Icons/ProfileButton";
 
 const Navigation = () => {
   const { Navigator, Screen } = createStackNavigator();
@@ -20,6 +21,7 @@ const Navigation = () => {
         headerStyle: { backgroundColor: "#96dce0" },
         headerTintColor: "white",
         headerTitleStyle: { fontStyle: "italic", fontWeight: "bold" },
+
         // backgroundColor: "transparent",
       }}
     >
@@ -40,36 +42,46 @@ const Navigation = () => {
       <Screen
         name="Home"
         component={Home}
-        options={{
-          headerStyle: { backgroundColor: "#39b4bc" },
+        options={({ navigation }) => {
+          return {
+            headerRight: () => <ProfileButton navigation={navigation} />,
+          };
         }}
       />
       <Screen
         name="TripsList"
         component={TripsList}
-        options={{
-          headerStyle: { backgroundColor: "#39b4bc" },
+        options={({ navigation }) => {
+          return {
+            headerRight: () => <ProfileButton navigation={navigation} />,
+          };
         }}
       />
       <Screen
         name="CreateTrip"
         component={CreateTrip}
-        options={{
-          headerStyle: { backgroundColor: "pink" },
+        options={({ navigation }) => {
+          return {
+            headerRight: () => <ProfileButton navigation={navigation} />,
+          };
         }}
       />
       <Screen
         name="TripDetail"
         component={TripDetail}
-        options={{
-          headerStyle: { backgroundColor: "pink" },
+        options={({ navigation }) => {
+          return {
+            headerRight: () => <ProfileButton navigation={navigation} />,
+          };
         }}
       />
       <Screen
         name="Profile"
         component={Profile}
-        options={{
-          headerStyle: { backgroundColor: "#39b4bc" },
+        options={({ navigation }) => {
+          return {
+            headerRight: () => <ProfileButton navigation={navigation} />,
+          };
         }}
       />
     </Navigator>

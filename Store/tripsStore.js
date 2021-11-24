@@ -39,7 +39,7 @@ class TripsStore {
       const res = await instance.delete(`/trips/${id}`);
 
       this.trips = this.trips.filter((trip) => trip._id !== id);
-      navigation.navigate("TripDetail");
+      navigation.navigate("TripsList");
     } catch (error) {
       console.log(error);
     }
