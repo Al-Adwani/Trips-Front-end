@@ -44,7 +44,6 @@ class TripsStore {
     try {
       await instance.delete(`/trips/${id}`);
 
-
       runInAction(() => {
         this.trips = this.trips.filter((trip) => trip._id !== id);
       });
@@ -71,6 +70,14 @@ class TripsStore {
       console.log(error);
     }
   };
+
+  get totalTrips() {
+    let total = 0;
+    // استخدمنا فور ايج لاني مابي اغير القيمه بس ابي اشوف الناتج الكلي مال الجمع ف ماستخدم ماب
+    this.trips.forEach((trip) => (total = total += trip.numberOfTrips));
+    // return 0;
+    return total;
+  }
 }
 const tripsStore = new TripsStore();
 tripsStore.fetchTrip();

@@ -12,7 +12,7 @@ class UserAuthStore {
     try {
       const res = await instance.post("/signup", userData);
       this.setUser(res.data.token);
-      navigation.navigate("Home");
+      navigation.navigate("TripsList");
     } catch (error) {
       //   toast.show({
       //     title: "Check your user name/password",
@@ -27,7 +27,7 @@ class UserAuthStore {
     try {
       const res = await instance.post("/signin", user);
       this.setUser(res.data.token);
-      navigation.navigate("Home");
+      navigation.goBack();
     } catch (error) {
       // toast.show({
       //   title: "Check your user name/password",

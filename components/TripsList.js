@@ -4,6 +4,7 @@ import { observer } from "mobx-react";
 import tripsStore from "../Store/tripsStore";
 import TripItem from "./TripItem";
 import { AddButton } from "./AddButton";
+import Test from "./Test";
 
 const TripsList = ({ navigation }) => {
   const tripList = tripsStore.trips.map((trip) => (
@@ -13,6 +14,7 @@ const TripsList = ({ navigation }) => {
     <View style={styles.container}>
       {tripList}
       <AddButton />
+      <Test navigation={navigation} />
     </View>
   );
 };

@@ -9,26 +9,30 @@ import Profile from "./Icons/Profile";
 import CreateTrip from "./CreateTrip";
 import TripDetail from "./TripDetail";
 import ImagePick from "./ImagePick";
-
+import Test from "./Test";
 import UpdateTheTrip from "./UpdateTheTrip";
-
 import ProfileButton from "./Icons/ProfileButton";
-
 
 const Navigation = () => {
   const { Navigator, Screen } = createStackNavigator();
 
   return (
     <Navigator
-      initialRouteName="Signin"
+      initialRouteName="Home"
       screenOptions={{
         headerStyle: { backgroundColor: "#96dce0" },
         headerTintColor: "white",
         headerTitleStyle: { fontStyle: "italic", fontWeight: "bold" },
-
-        // backgroundColor: "transparent",
       }}
     >
+      <Screen
+        name="Test"
+        component={Test}
+        options={{
+          headerStyle: { backgroundColor: "#39b4bc" },
+        }}
+      />
+
       <Screen
         name="Signup"
         component={Signup}
@@ -36,6 +40,7 @@ const Navigation = () => {
           headerStyle: { backgroundColor: "#39b4bc" },
         }}
       />
+
       <Screen
         name="Signin"
         component={Signin}
@@ -79,15 +84,7 @@ const Navigation = () => {
           };
         }}
       />
-      <Screen
-        name="Profile"
-        component={Profile}
-        options={({ navigation }) => {
-          return {
-            headerRight: () => <ProfileButton navigation={navigation} />,
-          };
-        }}
-      />
+      <Screen name="Profile" component={Profile} />
       <Screen
         name="UpdateTheTrip"
         component={UpdateTheTrip}
