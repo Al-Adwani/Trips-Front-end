@@ -9,10 +9,10 @@ import {
   StyleSheet,
   Text,
   View,
-  Button,
 } from "react-native";
-import { Box, AspectRatio, Center, Badge } from "native-base";
-import Icon from "react-native-vector-icons/Feather";
+import { Box, AspectRatio, Center, Badge, IconButton } from "native-base";
+// import Icon from "react-native-vector-icons/Feather";
+import { Button } from "native-base";
 
 // import { TabView, SceneMap } from "react-native-tab-view";
 // import Constants from "expo-constants";
@@ -57,12 +57,17 @@ export const TripDetail = ({ navigation, route }) => {
             />
           </AspectRatio>
         </Box>
-        <Icon
+        <Button style={{ marginTop: 16 }} onPress={handleDelete}>
+          Delete Trip
+        </Button>
+        <Button style={{ marginTop: 16 }}>Update Trip</Button>
+
+        {/* <Icon
           style={{ alignSelf: "flex-end" }}
           size={20}
           name="delete"
           onPress={handleDelete}
-        />
+        /> */}
       </Center>
     </View>
   );
