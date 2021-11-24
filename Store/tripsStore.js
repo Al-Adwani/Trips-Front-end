@@ -38,15 +38,27 @@ class TripsStore {
     try {
       const res = await instance.delete(`/trips/${id}`);
 
-      // navigation.navigate("TripsList")
       this.trips = this.trips.filter((trip) => trip._id !== id);
-      navigation.navigate("TripsList");
+      navigation.navigate("TripDetail");
     } catch (error) {
       console.log(error);
     }
   };
-}
 
+  // updateTrip = async (updatetrip, id, navigation) => {
+  //   try {
+  //     const formData = new FormData();
+  //     for (const key in updatetrip) {
+  //       formData.append(key, updatetrip[key]);
+  //     }
+  //     const res = await instance.update(`/trips/${id}`);
+  //     this.trips = this.trips.filter((trip) => trip._id !== id);
+  //     navigation.navigate("TripDetail");
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+}
 const tripsStore = new TripsStore();
 tripsStore.fetchTrip();
 export default tripsStore;
