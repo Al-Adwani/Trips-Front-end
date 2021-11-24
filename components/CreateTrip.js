@@ -3,7 +3,7 @@ import { VStack, Button, FormControl, Input } from "native-base";
 import tripsStore from "../Store/tripsStore";
 import ImagePick from "./ImagePick";
 
-const CreateTrip = () => {
+const CreateTrip = ({ navigation }) => {
   const [trip, setTrip] = React.useState({
     title: "",
     image: "",
@@ -11,7 +11,7 @@ const CreateTrip = () => {
   });
 
   const onSubmit = () => {
-    tripsStore.createTrip(trip);
+    tripsStore.createTrip(trip, navigation);
   };
 
   return (

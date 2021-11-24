@@ -1,10 +1,10 @@
 import axios from "axios";
 
 // deema's IP
-export const baseURL = "http://192.168.8.111:8000";
+// export const baseURL = "http://192.168.8.111:8000";
 
 // abdullah IP
-// export const baseURL = "http://192.168.8.130:8000";
+export const baseURL = "http://192.168.8.130:8000";
 
 //Faisal IP
 // export const baseURL = "http://192.168.249.15:8000";

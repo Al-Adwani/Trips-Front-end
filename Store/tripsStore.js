@@ -1,4 +1,4 @@
-import { makeAutoObservable } from "mobx";
+import { runInAction, makeAutoObservable } from "mobx";
 
 import { instance } from "./instance";
 
@@ -13,22 +13,28 @@ class TripsStore {
   fetchTrip = async () => {
     try {
       const res = await instance.get("/trips");
-      this.trips = res.data;
-      console.log(this.trips);
+
+      runInAction(() => {
+        this.trips = res.data;
+      });
       this.isLoading = false;
     } catch (error) {
       console.log(error);
     }
   };
 
-  createTrip = async (newTrip) => {
+  createTrip = async (newTrip, navigation) => {
     try {
       const formData = new FormData();
       for (const key in newTrip) {
         formData.append(key, newTrip[key]);
       }
       const response = await instance.post("/trips", formData);
-      this.trips.push(response.data);
+
+      runInAction(() => {
+        this.trips.push(response.data);
+      });
+      navigation.navigate("TripsList");
     } catch (error) {
       console.log(error);
     }
@@ -36,28 +42,33 @@ class TripsStore {
 
   deleteTrip = async (id, navigation) => {
     try {
-      const res = await instance.delete(`/trips/${id}`);
+      await instance.delete(`/trips/${id}`);
 
-      this.trips = this.trips.filter((trip) => trip._id !== id);
-      navigation.navigate("TripDetail");
+      runInAction(() => {
+        this.trips = this.trips.filter((trip) => trip._id !== id);
+      });
+      navigation.navigate("TripsList");
     } catch (error) {
       console.log(error);
     }
   };
 
-  // updateTrip = async (updatetrip, id, navigation) => {
-  //   try {
-  //     const formData = new FormData();
-  //     for (const key in updatetrip) {
-  //       formData.append(key, updatetrip[key]);
-  //     }
-  //     const res = await instance.update(`/trips/${id}`);
-  //     this.trips = this.trips.filter((trip) => trip._id !== id);
-  //     navigation.navigate("TripDetail");
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
+  updateTrip = async (updatetrip, navigation) => {
+    try {
+      const formData = new FormData();
+      for (const key in updatetrip) {
+        formData.append(key, updatetrip[key]);
+      }
+      const res = await instance.put(`/trips/${updatetrip._id}`, formData);
+      this.trips = this.trips.map((trip) =>
+        trip._id === updatetrip._id ? res.data : trip
+      );
+
+      navigation.navigate("TripsList");
+    } catch (error) {
+      console.log(error);
+    }
+  };
 }
 const tripsStore = new TripsStore();
 tripsStore.fetchTrip();

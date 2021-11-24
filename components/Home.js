@@ -5,13 +5,17 @@ import userAuthStore from "../Store/userAuthStore";
 import { observer } from "mobx-react";
 import ImagePick from "./ImagePick";
 
-const Home = () => {
+const Home = ({ navigation }) => {
   return (
     <View>
-      {/* <Text>Testing Component</Text> */}
-      {/* {userAuthStore.user ? (
+      <Text>Testing Component</Text>
+
+      {userAuthStore.user ? (
         <Button onPress={() => userAuthStore.logout()}>Logout</Button>
-      ) : null} */}
+      ) : null}
+      <Button onPress={() => navigation.navigate("TripsList")}>
+        See the Trips
+      </Button>
     </View>
   );
 };
