@@ -3,7 +3,6 @@ import React from "react";
 import { StyleSheet, Text, View, Image } from "react-native";
 import { observer } from "mobx-react";
 import { baseURL } from "../Store/instance";
-import UpdateTrip from "./Updat/UpdateTrip";
 
 const TripItem = ({ trip, navigation }) => {
   return (
@@ -43,7 +42,6 @@ const TripItem = ({ trip, navigation }) => {
             />
           </View>
         </Box>
-        {/* <UpdateTrip oldTrip={oldTrip} /> */}
       </VStack>
     </Pressable>
   );
