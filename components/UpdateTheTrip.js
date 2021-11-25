@@ -16,6 +16,7 @@ const UpdateTheTrip = ({ route, navigation }) => {
       <FormControl>
         <FormControl.Label _text={{ bold: true }}>Trip Title</FormControl.Label>
         <Input
+          margin="3"
           placeholder={trip.title}
           onChangeText={(value) =>
             setUpdateTrip({ ...updateTrip, title: value })

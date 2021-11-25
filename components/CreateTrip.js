@@ -19,6 +19,7 @@ const CreateTrip = ({ navigation }) => {
       <FormControl>
         <FormControl.Label _text={{ bold: true }}>Trip Title</FormControl.Label>
         <Input
+          margin="3"
           placeholder="Magical trip to Greece"
           onChangeText={(value) => setTrip({ ...trip, title: value })}
         />
