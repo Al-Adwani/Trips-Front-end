@@ -5,7 +5,12 @@ import tripsStore from "../Store/tripsStore";
 import TripItem from "./TripItem";
 import { AddButton } from "./AddButton";
 import Test from "./Test";
+
+import { ScrollView } from "react-native-gesture-handler";
+import { Box } from "native-base";
+
 import { useState } from "react";
+
 
 const TripsList = ({ navigation }) => {
   const tripList = tripsStore.trips.map((trip) => (
@@ -19,11 +24,24 @@ const TripsList = ({ navigation }) => {
   //     return <TripItem trip={trip} key={trip._id} />;
   //   });
   return (
-    <View style={styles.container}>
-      {tripList}
-      <AddButton />
-      <Test navigation={navigation} />
-    </View>
+    <ScrollView
+      _contentContainerStyle={{
+        px: "20px",
+        mb: "4",
+        minW: "72",
+      }}
+    >
+      <Box>
+        <AddButton />
+      </Box>
+      <View style={styles.container}>
+        {tripList}
+        <Box>
+          <AddButton />
+        </Box>
+        {/* <Test navigation={navigation} /> */}
+      </View>
+    </ScrollView>
   );
 };
 
