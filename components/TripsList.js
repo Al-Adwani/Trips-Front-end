@@ -5,11 +5,19 @@ import tripsStore from "../Store/tripsStore";
 import TripItem from "./TripItem";
 import { AddButton } from "./AddButton";
 import Test from "./Test";
+import { useState } from "react";
 
 const TripsList = ({ navigation }) => {
   const tripList = tripsStore.trips.map((trip) => (
     <TripItem navigation={navigation} trip={trip} key={trip._id} />
   ));
+  // const [query, setQuery] = useState("");
+
+  // const tripList = tripsStore.trips
+  //   .filter((trip) => trip.title.toLowerCase().includes(query))
+  //   .map((trip) => {
+  //     return <TripItem trip={trip} key={trip._id} />;
+  //   });
   return (
     <View style={styles.container}>
       {tripList}
