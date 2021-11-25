@@ -71,13 +71,28 @@ class TripsStore {
     }
   };
 
-  get totalTrips() {
-    let total = 0;
-    // استخدمنا فور ايج لاني مابي اغير القيمه بس ابي اشوف الناتج الكلي مال الجمع ف ماستخدم ماب
-    this.trips.forEach((trip) => (total = total += trip.numberOfTrips));
-    // return 0;
-    return total;
-  }
+  // get totalTrips() {
+  // let total = 0;
+  // if (this.trips.length > 0) {
+  // استخدمنا فور ايج لاني مابي اغير القيمه بس ابي اشوف الناتج الكلي مال الجمع ف ماستخدم ماب
+  // this.trips.forEach((trip) => (total = total += trip.numberOfTrips));
+  // return 0;
+  // return total;
+  // } else {
+  // alert("No Trips added");
+  // }
+
+  //   get Total(){
+  //     let totals =0
+  //     if(numberOfTrips===0){
+  //       return ("No Trips")
+  //       else{
+  //         (this.trips.length>=1)
+  //         return(  // this.trips.forEach((trip) => (total = total += trip.numberOfTrips));
+  //         )
+  //       }
+  //     }
+  //   }
 }
 const tripsStore = new TripsStore();
 tripsStore.fetchTrip();

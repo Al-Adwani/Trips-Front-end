@@ -8,10 +8,11 @@ import TripsList from "./TripsList";
 import Profile from "./Icons/Profile";
 import CreateTrip from "./CreateTrip";
 import TripDetail from "./TripDetail";
-import ImagePick from "./ImagePick";
 import Test from "./Test";
 import UpdateTheTrip from "./UpdateTheTrip";
 import ProfileButton from "./Icons/ProfileButton";
+import Search from "./Search";
+import UpdateProfile from "./UpdateProfile";
 
 const Navigation = () => {
   const { Navigator, Screen } = createStackNavigator();
@@ -25,6 +26,14 @@ const Navigation = () => {
         headerTitleStyle: { fontStyle: "italic", fontWeight: "bold" },
       }}
     >
+      <Screen
+        name="Search"
+        component={Search}
+        options={{
+          headerStyle: { backgroundColor: "#39b4bc" },
+        }}
+      />
+
       <Screen
         name="Test"
         component={Test}
@@ -84,10 +93,24 @@ const Navigation = () => {
           };
         }}
       />
-      <Screen name="Profile" component={Profile} />
+      <Screen
+        name="Profile"
+        component={Profile}
+        options={{
+          headerStyle: { backgroundColor: "#39b4bc" },
+        }}
+      />
+
       <Screen
         name="UpdateTheTrip"
         component={UpdateTheTrip}
+        options={{
+          headerStyle: { backgroundColor: "#39b4bc" },
+        }}
+      />
+      <Screen
+        name="UpdateProfile"
+        component={UpdateProfile}
         options={{
           headerStyle: { backgroundColor: "#39b4bc" },
         }}

@@ -17,9 +17,11 @@ import { observer } from "mobx-react";
 
 import { MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons";
 import userAuthStore from "../Store/userAuthStore";
+import { useState } from "react";
 
 const Test = ({ navigation }) => {
   const [selected, setSelected] = React.useState(1);
+  const [query, setQuery] = useState("");
 
   return (
     <Box flex={1} safeAreaTop width="350">
@@ -67,6 +69,10 @@ const Test = ({ navigation }) => {
             <Text color="white" fontSize="12">
               Search
             </Text>
+            {/* <Input
+              placeholder="Search .."
+              onChangeText={(value) => setQuery({ ...query, title: value })}
+            /> */}
           </Center>
         </Pressable>
         <Pressable
