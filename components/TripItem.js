@@ -72,7 +72,11 @@ const TripItem = ({ trip, navigation }) => {
                 }}
                 fontWeight="400"
               ></Text>
-              <Button onPress={() => navigation.navigate("TripsDetail")}>
+              <Button
+                onPress={() => {
+                  navigation.navigate("TripDetail", { trip: trip });
+                }}
+              >
                 Trip Details
               </Button>
             </HStack>

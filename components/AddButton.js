@@ -6,9 +6,7 @@ import { useNavigation } from "@react-navigation/native";
 import userAuthStore from "../Store/userAuthStore";
 import { FloatingAction } from "react-native-floating-action";
 
-export const AddButton = () => {
-  const navigation = useNavigation();
-
+export const AddButton = ({ navigation }) => {
   const handlePress = () => {
     // if (userAuthStore.user)
     navigation.navigate("CreateTrip");
@@ -25,14 +23,20 @@ export const AddButton = () => {
   ];
 
   return (
-    <View>
-      <FloatingAction
-        actions={actions}
-        onPressItem={(name) => {
-          console.log(`selected button: ${name}`);
-        }}
+    <Box position="relative" h={100} w="100%">
+      <Fab
+        position="absolute"
+        size="sm"
+        icon={
+          <Icon
+            color="white"
+            as={<AntDesign name="plus" />}
+            size="sm"
+            onPress={handlePress}
+          />
+        }
       />
-    </View>
+    </Box>
   );
 };
 export default AddButton;

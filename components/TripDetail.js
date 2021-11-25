@@ -42,20 +42,34 @@ export const TripDetail = ({ navigation, route }) => {
     <View style={styles.container}>
       <Center flex={1} px="7">
         <Text style={styles.baseText}> {trip.title}</Text>
-        <Text style={styles.text}>{trip.description}</Text>
         <Box borderWidth="1" borderColor="#39b4bc">
-          <AspectRatio w="70%" ratio={16 / 9}>
+          <AspectRatio w="100%" ratio={16 / 9}>
             <Image
               source={{ uri: baseURL + trip.image }}
-              style={{ width: 50, height: 50 }}
+              style={{ width: 60, height: 60 }}
             />
           </AspectRatio>
         </Box>
+
+        <Box
+          borderColor="coolGray.200"
+          borderWidth="1"
+          _dark={{
+            borderColor: "coolGray.600",
+            backgroundColor: "gray.700",
+          }}
+        >
+          <Text style={styles.text}>{trip.description}</Text>
+        </Box>
+
         {verifyUser() === trip.owner.toString() ? (
-          <Button onPress={handleDelete}>Delete</Button>
+          <Button margin="3" marginLeft="-76%" onPress={handleDelete}>
+            Delete
+          </Button>
         ) : null}
         {verifyUser() === trip.owner.toString() ? (
           <Button
+            marginLeft="-70%"
             onPress={() => {
               navigation.navigate("UpdateTheTrip", { trip: trip });
             }}
@@ -78,13 +92,16 @@ const styles = StyleSheet.create({
   },
 
   baseText: {
+    fontWeight: "bold",
     fontSize: 30,
-    color: "#39b4bc",
+    color: "crimson",
   },
   text: {
-    color: "#39b4bc",
+    color: "black",
+    fontWeight: "bold",
 
-    fontSize: 20,
+    margin: 10,
+    fontSize: 15,
   },
 });
 

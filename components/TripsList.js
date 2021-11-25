@@ -11,7 +11,6 @@ import { Box } from "native-base";
 
 import { useState } from "react";
 
-
 const TripsList = ({ navigation }) => {
   const tripList = tripsStore.trips.map((trip) => (
     <TripItem navigation={navigation} trip={trip} key={trip._id} />
@@ -24,24 +23,22 @@ const TripsList = ({ navigation }) => {
   //     return <TripItem trip={trip} key={trip._id} />;
   //   });
   return (
-    <ScrollView
-      _contentContainerStyle={{
-        px: "20px",
-        mb: "4",
-        minW: "72",
-      }}
-    >
-      <Box>
-        <AddButton />
-      </Box>
-      <View style={styles.container}>
-        {tripList}
-        <Box>
-          <AddButton />
-        </Box>
-        {/* <Test navigation={navigation} /> */}
-      </View>
-    </ScrollView>
+    <View>
+      <ScrollView
+        _contentContainerStyle={{
+          px: "20px",
+          mb: "4",
+          minW: "72",
+        }}
+      >
+        <View style={styles.container}>
+          {tripList}
+
+          {/* <Test navigation={navigation} /> */}
+        </View>
+      </ScrollView>
+      <AddButton navigation={navigation} />
+    </View>
   );
 };
 
