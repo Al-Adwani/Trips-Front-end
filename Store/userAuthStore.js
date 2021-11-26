@@ -1,4 +1,4 @@
-import { makeAutoObservable } from "mobx";
+import { runInAction, makeAutoObservable } from "mobx";
 import decode from "jwt-decode";
 import { instance } from "./instance";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -11,7 +11,10 @@ class UserAuthStore {
   signup = async (userData, navigation, toast) => {
     try {
       const res = await instance.post("/signup", userData);
-      this.setUser(res.data.token);
+      runInAction(() => {
+        this.setUser(res.data.token);
+      });
+
       navigation.navigate("TripsList");
     } catch (error) {
       //   toast.show({
@@ -26,7 +29,10 @@ class UserAuthStore {
   signin = async (user, navigation, toast) => {
     try {
       const res = await instance.post("/signin", user);
-      this.setUser(res.data.token);
+      runInAction(() => {
+        this.setUser(res.data.token);
+      });
+
       navigation.goBack();
     } catch (error) {
       // toast.show({
@@ -40,7 +46,10 @@ class UserAuthStore {
   setUser = async (token) => {
     try {
       await AsyncStorage.setItem("myToken", token);
-      this.user = decode(token);
+      runInAction(() => {
+        this.user = decode(token);
+      });
+
       instance.defaults.headers.common.Authorization = `Bearer ${token}`;
     } catch (error) {}
   };
@@ -48,7 +57,9 @@ class UserAuthStore {
     try {
       delete instance.defaults.headers.common.Authorization;
       await AsyncStorage.removeItem("myToken");
-      this.user = null;
+      runInAction(() => {
+        this.user = null;
+      });
     } catch (error) {
       console.log(error);
     }
