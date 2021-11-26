@@ -10,11 +10,17 @@ import { ScrollView } from "react-native-gesture-handler";
 import { Box } from "native-base";
 
 import { useState } from "react";
+import userAuthStore from "../Store/userAuthStore";
 
 const TripsList = ({ navigation }) => {
   const tripList = tripsStore.trips.map((trip) => (
     <TripItem navigation={navigation} trip={trip} key={trip._id} />
   ));
+  const createBtn = () => {
+    if (userAuthStore.user) {
+      return <AddButton navigation={navigation} />;
+    }
+  };
   // const [query, setQuery] = useState("");
 
   // const tripList = tripsStore.trips
@@ -37,7 +43,7 @@ const TripsList = ({ navigation }) => {
           {/* <Test navigation={navigation} /> */}
         </View>
       </ScrollView>
-      <AddButton navigation={navigation} />
+      {createBtn()}
     </View>
   );
 };

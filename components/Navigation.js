@@ -46,6 +46,7 @@ const Navigation = () => {
         name="Signup"
         component={Signup}
         options={{
+          title: "Signup",
           headerStyle: { backgroundColor: "#39b4bc" },
         }}
       />
@@ -54,6 +55,7 @@ const Navigation = () => {
         name="Signin"
         component={Signin}
         options={{
+          title: "Signin",
           headerStyle: { backgroundColor: "#39b4bc" },
         }}
       />
@@ -72,6 +74,8 @@ const Navigation = () => {
         options={({ navigation }) => {
           return {
             headerRight: () => <ProfileButton navigation={navigation} />,
+            title: "The List",
+
           };
         }}
       />
@@ -90,6 +94,7 @@ const Navigation = () => {
         options={({ navigation }) => {
           return {
             headerRight: () => <ProfileButton navigation={navigation} />,
+            title: "the Trip Detail",
           };
         }}
       />
